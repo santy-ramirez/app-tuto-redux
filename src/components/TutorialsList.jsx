@@ -56,11 +56,6 @@ const TutorialsList = () => {
 
     const handleUpdateTutorial = () => {
         dispatch(updateTutorial(tutorial.id, tutorial))
-            .then(res => {
-                setTutorial(res.data)
-                console.log(res)
-            })
-            .catch(err => console.error(err))
         handleClose()
     }
 
@@ -73,13 +68,7 @@ const TutorialsList = () => {
 
 
     const handleDelete = (id) => {
-        setIsDelete(false)
         dispatch(deleteTutorial(id))
-            .then(res => {
-                console.log(res)
-                setIsDelete(true)
-            })
-            .catch(err => console.error(err))
     }
 
     return (

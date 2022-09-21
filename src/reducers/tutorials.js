@@ -19,7 +19,16 @@ import {
       case SEARCH_FOR_TITLE:
         return payload  
       case UPDATE_TUTORIAL:
-         return tutorials.filter(tutorial => tutorial.id != payload.id)
+        return tutorials.map((tutorial) => {
+          if (tutorial.id === payload.id) {
+            return {
+              ...tutorial,
+              ...payload,
+            };
+          } else {
+            return tutorial;
+          }
+        });
       case DELETE_TUTORIAL:
         return tutorials.filter((t) => t.id !== payload)      
       default:
